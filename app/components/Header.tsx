@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
-  const color = "bg-(--button-background)";
-
   return (
     <header className=" text-white flex flex-col items-center justify-center ">
       <div className="w-full">
