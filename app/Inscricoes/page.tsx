@@ -1,3 +1,10 @@
+import { titles } from "../data/titles";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: titles[0].title
+}
+
 const Inscricoes = () => {
   return (
     <div>
