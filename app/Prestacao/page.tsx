@@ -4,8 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import GoBack from "../components/GoBack";
 import { RiArrowDownSFill, RiFolderLine } from "react-icons/ri";
-import { titles } from "../data/titles";
-import { Metadata } from "next";
 
 const termos = [
   "01/2023/SMUL - Taquari Agro Comercial LTDA",
@@ -124,7 +122,7 @@ const Prestacao = () => {
             </div>
           </div>
 
-          <button type="button" className="w-[180px] rounded-sm bg-[#8DA3D8] py-2 text-2xl font-bold text-white">
+          <button type="button" className="w-45 rounded-sm bg-[#8DA3D8] py-2 text-2xl font-bold text-white">
             Enviar
           </button>
 
