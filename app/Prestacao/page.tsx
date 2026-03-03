@@ -4,8 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import GoBack from "../components/GoBack";
 import { RiArrowDownSFill, RiFolderLine } from "react-icons/ri";
-import { titles } from "../data/titles";
-import { Metadata } from "next";
+import { AiOutlineFolderOpen } from "react-icons/ai";
 
 const termos = [
   "01/2023/SMUL - Taquari Agro Comercial LTDA",
@@ -18,11 +17,6 @@ const termos = [
   "06/2024/SMUL - ORGANIZACAO TOLEDO LARA LTDA",
   "01/2025/SMUL - Elza Lara Loeb",
 ];
-
-
-export const metadata: Metadata = {
-  title: titles[2].title
-}
 
 const Prestacao = () => {
   const [open, setOpen] = useState(false);
@@ -120,7 +114,7 @@ const Prestacao = () => {
 
             <div className="flex items-center gap-4">
               <label htmlFor="uploadDocs" className="flex w-fit cursor-pointer items-center gap-3 rounded-sm bg-[#E9E9EC] px-4 py-3 text-[#173EA5] shadow">
-                <RiFolderLine className="text-3xl" />
+                <AiOutlineFolderOpen className="text-3xl" />
                 <span className="text-lg font-semibold">Pesquisar arquivos</span>
               </label>
 
