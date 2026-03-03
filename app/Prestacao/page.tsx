@@ -20,10 +20,6 @@ const termos = [
 ];
 
 
-export const metadata: Metadata = {
-  title: titles[2].title
-}
-
 const Prestacao = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("Selecione o Termo de Outorga");
