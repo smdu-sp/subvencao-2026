@@ -25,8 +25,8 @@ const Prestacao = () => {
   const [arquivo, setArquivo] = useState<File | null>(null);
 
   return (
-    <main className="flex justify-center">
-      <div className="flex w-full max-w-215 flex-col items-start gap-8 rounded-lg p-8">
+    <main className="flex justify-center px-4 sm:px-6">
+      <div className="flex w-full max-w-215 flex-col items-start gap-8 rounded-lg px-0 py-6 sm:p-8">
         <GoBack />
         <div>
           <p className="text-lg">Nesta página o subvencionado enviará os documentos e arquivos relacionados à prestação de contas da iniciativa.</p>
@@ -58,7 +58,7 @@ const Prestacao = () => {
             Anexo II (Instrução Normativa SMUL n° 01/2024/SMUL)
           </Link>
         </div>
-        <div className="w-[37vw]">
+        <div className="w-full sm:w-[37vw] sm:min-w-[420px]">
           <div className="relative">
             <button type="button" onClick={() => setOpen((v) => !v)} className="flex w-full items-center justify-between rounded-sm border border-gray-300 bg-white p-2 pr-3 text-left">
               <span>{selected}</span>
@@ -90,17 +90,17 @@ const Prestacao = () => {
           </div>
         </div>
 
-        <div className="mt-2 flex w-full flex-col gap-10">
+        <div className="mt-2 flex w-full flex-col gap-8 sm:gap-10">
           <div className="flex flex-col gap-4">
             <strong className="text-lg">Selecione o tipo de prestação de contas</strong>
 
-            <div className="flex items-center gap-10">
-              <label className="flex cursor-pointer items-center gap-3 text-lg">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-10">
+              <label className="flex cursor-pointer items-center gap-3 text-base sm:text-lg">
                 <input type="radio" name="tipoPrestacao" value="anual" checked={tipoPrestacao === "anual"} onChange={() => setTipoPrestacao("anual")} className="h-5 w-5 accent-black" />
                 Anual
               </label>
 
-              <label className="flex cursor-pointer items-center gap-3 text-lg">
+              <label className="flex cursor-pointer items-center gap-3 text-base sm:text-lg">
                 <input type="radio" name="tipoPrestacao" value="marco" checked={tipoPrestacao === "marco"} onChange={() => setTipoPrestacao("marco")} className="h-5 w-5 accent-black" />
                 Marco
               </label>
@@ -112,17 +112,17 @@ const Prestacao = () => {
 
             <input id="uploadDocs" type="file" className="hidden" onChange={(e) => setArquivo(e.target.files?.[0] ?? null)} />
 
-            <div className="flex items-center gap-4">
-              <label htmlFor="uploadDocs" className="flex w-fit cursor-pointer items-center gap-3 rounded-sm bg-[#E9E9EC] px-4 py-3 text-[#173EA5] shadow">
+            <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <label htmlFor="uploadDocs" className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-sm bg-[#E9E9EC] px-4 py-3 text-[#173EA5] shadow sm:w-fit sm:justify-start">
                 <AiOutlineFolderOpen className="text-3xl" />
-                <span className="text-lg font-semibold">Pesquisar arquivos</span>
+                <span className="text-base font-semibold sm:text-lg">Pesquisar arquivos</span>
               </label>
 
               {arquivo && <p className="text-sm text-gray-700">{arquivo.name}</p>}
             </div>
           </div>
 
-          <button type="button" className="w-[180px] rounded-sm bg-[#8DA3D8] py-2 text-2xl font-bold text-white">
+          <button type="button" className="w-full rounded-sm bg-[#8DA3D8] py-2 text-xl font-bold text-white sm:w-[180px] sm:text-2xl">
             Enviar
           </button>
 
