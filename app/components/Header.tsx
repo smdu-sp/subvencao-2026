@@ -7,7 +7,7 @@ const Header = () => {
       <nav className="max-w-325">
         <div className="w-full flex justify-center items-center">
           <Link href="/" className="flex max-w-8xl justify-center items-center">
-            <Image src="/HeaderImage.png" alt="Logo" width={1920} height={1080} className="" />
+            <Image src="/headerImage.png" alt="Logo" width={1920} height={1080} className="" />
           </Link>
         </div>
         <div className="flex space-x-8.5 mt-4">

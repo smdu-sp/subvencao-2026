@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 
 const Editais = () => {
   return (
-    <div className="text-black w-325 mx-auto mt-5 pt-11 bg-white">
-      <section className="flex flex-col w-209.5 mx-auto">
+    <div className="text-black max-w-6xl mx-auto px-4 mt-5 pt-11 bg-white">
+        <section className="flex flex-col max-w-4xl mx-auto w-full">
         <GoBack></GoBack>
         <div className={`mt-6 ${openSans.className} text-lg`}>
           Confira os editais de credenciamento para os projetos de
