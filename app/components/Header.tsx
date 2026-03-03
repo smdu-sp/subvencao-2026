@@ -12,7 +12,7 @@ const Header = () => {
         </div>
         <div className="flex space-x-8.5 mt-4">
           <Link
-            className="p-4 font-bold bg-(--button-background) text-[26px] rounded-sm w-75 text-center hover:underline ease-in-out duration-500 transition-all flex flex-col items-center justify-center "
+            className="p-4 font-bold bg-(--button-background) text-[26px] rounded-sm w-75 text-center hover:underline ease-in-out duration-500 transition-all flex flex-col items-center justify-center"
             href="/Inscricoes"
           >
             Inscrições
