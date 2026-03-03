@@ -1,4 +1,10 @@
 import GoBack from "../components/GoBack";
+import { titles } from "../data/titles";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: titles[2].title
+}
 
 const Prestacao = () => {
   return (
