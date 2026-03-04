@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import GoBack from "../components/GoBack";
-import { RiArrowDownSFill } from "react-icons/ri";
-import { AiOutlineFolderOpen } from "react-icons/ai";
+import { RiArrowDownSFill, RiFolderLine } from "react-icons/ri";
 
 const termos = [
   "01/2023/SMUL - Taquari Agro Comercial LTDA",
@@ -17,11 +16,6 @@ const termos = [
   "06/2024/SMUL - ORGANIZACAO TOLEDO LARA LTDA",
   "01/2025/SMUL - Elza Lara Loeb",
 ];
-
-
-export const metadata: Metadata = {
-  title: titles[2].title
-}
 
 const Prestacao = () => {
   const [open, setOpen] = useState(false);
