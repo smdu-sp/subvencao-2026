@@ -18,6 +18,11 @@ const termos = [
   "01/2025/SMUL - Elza Lara Loeb",
 ];
 
+
+export const metadata: Metadata = {
+  title: titles[2].title
+}
+
 const Prestacao = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("Selecione o Termo de Outorga");
@@ -90,17 +95,17 @@ const Prestacao = () => {
           </div>
         </div>
 
-        <div className="mt-2 flex w-full flex-col gap-8 sm:gap-10">
+        <div className="mt-2 flex w-full flex-col gap-10">
           <div className="flex flex-col gap-4">
             <strong className="text-lg">Selecione o tipo de prestação de contas</strong>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-10">
-              <label className="flex cursor-pointer items-center gap-3 text-base sm:text-lg">
+            <div className="flex items-center gap-10">
+              <label className="flex cursor-pointer items-center gap-3 text-lg">
                 <input type="radio" name="tipoPrestacao" value="anual" checked={tipoPrestacao === "anual"} onChange={() => setTipoPrestacao("anual")} className="h-5 w-5 accent-black" />
                 Anual
               </label>
 
-              <label className="flex cursor-pointer items-center gap-3 text-base sm:text-lg">
+              <label className="flex cursor-pointer items-center gap-3 text-lg">
                 <input type="radio" name="tipoPrestacao" value="marco" checked={tipoPrestacao === "marco"} onChange={() => setTipoPrestacao("marco")} className="h-5 w-5 accent-black" />
                 Marco
               </label>
@@ -112,10 +117,10 @@ const Prestacao = () => {
 
             <input id="uploadDocs" type="file" className="hidden" onChange={(e) => setArquivo(e.target.files?.[0] ?? null)} />
 
-            <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <label htmlFor="uploadDocs" className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-sm bg-[#E9E9EC] px-4 py-3 text-[#173EA5] shadow sm:w-fit sm:justify-start">
-                <AiOutlineFolderOpen className="text-3xl" />
-                <span className="text-base font-semibold sm:text-lg">Pesquisar arquivos</span>
+            <div className="flex items-center gap-4">
+              <label htmlFor="uploadDocs" className="flex w-fit cursor-pointer items-center gap-3 rounded-sm bg-[#E9E9EC] px-4 py-3 text-[#173EA5] shadow">
+                <RiFolderLine className="text-3xl" />
+                <span className="text-lg font-semibold">Pesquisar arquivos</span>
               </label>
 
               {arquivo && <p className="text-sm text-gray-700">{arquivo.name}</p>}
