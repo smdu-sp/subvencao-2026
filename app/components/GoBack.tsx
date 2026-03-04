@@ -10,7 +10,7 @@ const dmSans = DM_Sans({
 
 const GoBack = () => {
   return (
-    <Link href="/" className={`flex items-center gap-2 text-base text-black ${dmSans.className}`}>
+    <Link href="/" className={`flex items-center mt-4 gap-2 text-base text-black ${dmSans.className}`}>
       <RiArrowGoBackLine size={20} />
       Voltar
     </Link>

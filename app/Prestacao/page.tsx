@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import GoBack from "../components/GoBack";
-import { RiArrowDownSFill, RiFolderLine } from "react-icons/ri";
+import { RiArrowDownSFill } from "react-icons/ri";
 import { AiOutlineFolderOpen } from "react-icons/ai";
 
 const termos = [
@@ -26,7 +26,7 @@ const Prestacao = () => {
 
   return (
     <main className="flex justify-center px-4 sm:px-6">
-      <div className="flex w-full max-w-215 flex-col items-start gap-8 rounded-lg px-0 py-6 sm:p-8">
+      <div className="flex w-full max-w-228 flex-col items-start gap-8 rounded-lg px-0 py-6 sm:p-8">
         <GoBack />
         <div>
           <p className="text-lg">Nesta página o subvencionado enviará os documentos e arquivos relacionados à prestação de contas da iniciativa.</p>
@@ -58,7 +58,7 @@ const Prestacao = () => {
             Anexo II (Instrução Normativa SMUL n° 01/2024/SMUL)
           </Link>
         </div>
-        <div className="w-full sm:w-[37vw] sm:min-w-[420px]">
+        <div className="w-full sm:w-[37vw] sm:min-w-105">
           <div className="relative">
             <button type="button" onClick={() => setOpen((v) => !v)} className="flex w-full items-center justify-between rounded-sm border border-gray-300 bg-white p-2 pr-3 text-left">
               <span>{selected}</span>
@@ -122,7 +122,7 @@ const Prestacao = () => {
             </div>
           </div>
 
-          <button type="button" className="w-full rounded-sm bg-[#8DA3D8] py-2 text-xl font-bold text-white sm:w-[180px] sm:text-2xl">
+          <button type="button" className="w-full rounded-sm bg-[#8DA3D8] py-2 text-xl font-bold text-white sm:w-45 sm:text-2xl">
             Enviar
           </button>
 
