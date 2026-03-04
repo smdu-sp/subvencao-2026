@@ -2,8 +2,6 @@ import Article from "../components/Article";
 import GoBack from "../components/GoBack";
 import { DM_Sans, Open_Sans } from "next/font/google";
 import { editais } from "../data/editais";
-import { titles } from "../data/titles";
-import { Metadata } from "next";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -17,40 +15,25 @@ const openSans = Open_Sans({
   variable: "--font-open-sans",
 });
 
-export const metadata: Metadata = {
-  title: titles[1].title
-}
-
 const Editais = () => {
   return (
     <div className="text-black max-w-6xl mx-auto px-4 mt-5 pt-11 bg-white">
-        <section className="flex flex-col max-w-4xl mx-auto w-full">
-        <GoBack></GoBack>
+      <section className="flex flex-col max-w-4xl mx-auto w-full">
+        <GoBack />
         <div className={`mt-6 ${openSans.className} text-lg`}>
-          Confira os editais de credenciamento para os projetos de
-          requalificação edilícia em imóveis localizados no perímetro do
-          Programa Requalifica Centro:
+          Confira os editais de credenciamento para os projetos de requalificação edilícia em imóveis localizados no perímetro do Programa Requalifica Centro:
         </div>
         {editais.map((edital, index) => (
           <div key={edital.id}>
             <div className={`flex flex-col mt-8 ${openSans.className} text-lg`}>
-              <b className={`${dmSans.className} text-lg`}>
-                Chamamento Público nº {edital.numero}
-              </b>
+              <b className={`${dmSans.className} text-lg`}>Chamamento Público nº {edital.numero}</b>
 
               <p>
-                <b>Objetivo:</b> Credenciar projetos que promovam intervenções
-                de requalificação edilícia em imóveis localizados no perímetro
-                do Programa Requalifica Centro ao recebimento de subvenção
+                <b>Objetivo:</b> Credenciar projetos que promovam intervenções de requalificação edilícia em imóveis localizados no perímetro do Programa Requalifica Centro ao recebimento de subvenção
                 econômica.
               </p>
 
-              <a
-                className="text-blue-800 underline"
-                href={edital.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="text-blue-800 underline" href={edital.link} target="_blank" rel="noopener noreferrer">
                 Saiba mais aqui
               </a>
             </div>
