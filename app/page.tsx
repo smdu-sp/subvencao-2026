@@ -9,8 +9,8 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <main className="flex justify-center ">
-      <div className="flex w-full max-w-325 bg-white px-4 py-5  overflow-hidden h-185">
+    <main className="flex justify-center mt-4">
+      <div className="flex w-full max-w-325 bg-white overflow-hidden h-185 rounded">
         <SidebarProvider open={isOpen} onOpenChange={setIsOpen} className="w-full h-full min-h-full">
           <Sidebar
             collapsible="none"
