@@ -10,22 +10,36 @@ export default function Home() {
 
   return (
     <main className="flex justify-center px-4 sm:px-6">
-      <div className="flex w-full max-w-7xl mt-4">
-        <SidebarProvider open={isOpen} onOpenChange={setIsOpen} className="min-h-full">
-          <Sidebar collapsible="none" className={`transition-all duration-300 ease-in-out overflow-hidden bg-white border-r ${isOpen ? "w-[20rem] opacity-100" : "w-0 opacity-0 border-r-0"}`}>
-            <SidebarContent>
+      <div className="flex w-full max-w-325 mt-4 bg-white border rounded-lg shadow-sm overflow-hidden h-185">
+        <SidebarProvider open={isOpen} onOpenChange={setIsOpen} className="w-full h-full min-h-full">
+          <Sidebar
+            collapsible="none"
+            className={`
+              w-[20rem] border-r bg-white transition-all ease-in-out
+              duration-700 
+              ${isOpen ? "ml-0" : "-ml-[20rem]"}
+            `}
+          >
+            {/* min-w-[20rem] impede que o texto quebre ou diminua durante a animação */}
+            <SidebarContent className="min-w-[20rem]">
               <SidebarGroup>
-                <SidebarGroupContent className="flex flex-col gap-4">
-                  <p className="text-base font-bold text-[#0a3297]">Subvenção Econômica para o Centro: incentivo à requalificação de imóveis e ao adensamento populacional</p>
-                  <p className="text-base font-normal text-black">
+                {/* gap-3 aproxima os blocos de texto */}
+                <SidebarGroupContent className="flex flex-col gap-3 p-4">
+                  {/* Título com entrelinha justa (leading-tight) */}
+                  <p className="text-base font-bold text-[#0a3297] leading-tight">Subvenção Econômica para o Centro: incentivo à requalificação de imóveis e ao adensamento populacional</p>
+
+                  {/* Parágrafos com entrelinha confortável mas compacta (leading-snug) */}
+                  <p className="text-base font-normal text-black leading-snug tracking-tight">
                     A Prefeitura está investindo na transformação do centro de São Paulo. Por meio do Programa de Subvenção Econômica, imóveis da região podem receber incentivo financeiro para obras
                     de retrofit — com foco especial na criação de moradias de interesse social.
                   </p>
-                  <p className="text-base font-normal text-black">
+
+                  <p className="text-base font-normal text-black leading-snug tracking-tight">
                     Prevista no Plano Urbanístico do Centro (Lei nº 17.844/2022) e regulamentada pelo Decreto nº 62.878/2023, a iniciativa promove chamamentos públicos para selecionar empreendimentos
                     e viabilizar a requalificação de edifícios subutilizados.
                   </p>
-                  <p className="text-base font-normal text-black">
+
+                  <p className="text-base font-normal text-black leading-snug tracking-tight">
                     Aqui, você encontra todas as informações sobre os empreendimentos contemplados, as regras do programa e a prestação de contas das ações realizadas.
                   </p>
                 </SidebarGroupContent>
@@ -33,14 +47,16 @@ export default function Home() {
             </SidebarContent>
           </Sidebar>
 
-          <SidebarInset className="relative p-0 m-0 bg-transparent flex-1 overflow-hidden transition-all duration-300">
-            {/* O Trigger vai chamar o nosso setIsOpen automaticamente por conta do SidebarProvider */}
-            <SidebarTrigger className="w-10 h-14 absolute z-50 top-0 left-0 bg-[#a6bbf5] rounded-l-none text-white hover:text-black cursor-pointer shadow-md">
-              {/* Bônus: A setinha agora gira 180 graus quando o menu está fechado! */}
-              <ChevronLeft className={`transition-transform duration-300 ${!isOpen ? "rotate-180" : ""}`} />
+          <SidebarInset className="relative p-0 m-0 bg-transparent flex-1 overflow-hidden">
+            <SidebarTrigger
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-10 h-14 absolute z-50 top-0 left-0 bg-[#a6bbf5] rounded-l-none text-white hover:text-black cursor-pointer shadow-md transition-all duration-300"
+            >
+              {/* O ícone também gira suavemente na mesma velocidade da sidebar (duration-700) */}
+              <ChevronLeft className={`transition-transform duration-700 ${!isOpen ? "rotate-180" : ""}`} />
             </SidebarTrigger>
 
-            <Skeleton className="w-full h-[600px] bg-gray-300 rounded-l-none" />
+            <Skeleton className="w-full h-full bg-gray-300 rounded-none" />
           </SidebarInset>
         </SidebarProvider>
       </div>
