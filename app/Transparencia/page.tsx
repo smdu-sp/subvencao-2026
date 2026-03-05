@@ -4,7 +4,7 @@ import Link from "next/link";
 import GoBack from "../components/GoBack";
 import { DM_Sans } from "next/font/google";
 import DetailsTransparency from "../components/DetailsTransparency";
-import { chamamentos } from "../components/MockDetailsTransparency";
+import { chamamentos2023, chamamentos2024, chamamentos2025 } from "../components/MockDetailsTransparency";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 const Transparencia = () => {
   return (
     <main className="flex justify-center px-4 sm:px-6">
-      <div className={`flex w-full max-w-228 flex-col items-start gap-8 rounded-lg px-0 py-6 sm:p-8 ${dmSans.className}`}>
+      <div className={`flex w-full max-w-228 flex-col items-start gap-8 rounded-lg px-0 py-6 sm:p-8 ${dmSans.className} bg-white`}>
         <GoBack />
         <div>
           <p className="text-lg">Conheça os empreendimentos que foram credenciados para a subvenção econômica.</p>
@@ -24,9 +24,29 @@ const Transparencia = () => {
           </Link>
         </div>
 
-        {chamamentos.map((grupo) => (
+        {chamamentos2025.map((grupo) => (
           <DetailsTransparency key={grupo.id} headerTitle={grupo.headerTitle} items={grupo.items} color="#cc3971" />
         ))}
+        {chamamentos2024.map((grupo) => (
+          <DetailsTransparency key={grupo.id} headerTitle={grupo.headerTitle} items={grupo.items} color="#f38943" />
+        ))}
+        {chamamentos2023.map((grupo) => (
+          <DetailsTransparency key={grupo.id} headerTitle={grupo.headerTitle} items={grupo.items} color="#517bec" />
+        ))}
+        <div className="mt-20 w-full rounded-sm bg-[#f6f6f8] px-2 py-4 text-base leading-relaxed text-black">
+          <p className="text-sm">
+            Denúncias de irregularidades devem ser encaminhadas para o e-mail{" "}
+            <a href="mailto:subvencao@prefeitura.sp.gov.br" className="underline">
+              subvencao@prefeitura.sp.gov.br
+            </a>
+          </p>
+          <p className="text-sm">
+            Material de apoio | Logos Oficiais SMUL e Prefeitura de São Paulo:{" "}
+            <Link href="mailto:subvencao@prefeitura.sp.gov.br" target="_blank" className="underline">
+              Logos | Identidade 2023 | Oficiais - Google Drive
+            </Link>
+          </p>
+        </div>
       </div>
     </main>
   );
