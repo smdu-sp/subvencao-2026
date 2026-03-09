@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={`${dmSans.className} antialiased`}>
+      <body className={`${dmSans.className} antialiased bg-[#f7f7f9] min-h-screen`}>
         <RouteHeader />
         {children}
       </body>

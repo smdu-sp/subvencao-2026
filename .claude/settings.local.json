@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls d:/www/subvencao-2026/next.config*)",
+      "Bash(ls d:/www/subvencao-2026/prisma.config*)"
+    ]
+  }
+}

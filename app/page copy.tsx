@@ -4,11 +4,10 @@ import { useState } from "react";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function InfoMap() {
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex flex-col gap-3 p-4">
       {/* Título com entrelinha justa (leading-tight) */}
       <p className="text-base font-bold text-[#0a3297] leading-tight">Subvenção Econômica para o Centro: incentivo à requalificação de imóveis e ao adensamento populacional</p>
 
@@ -35,21 +34,43 @@ export default function Home() {
 
   return (
     <main className="flex justify-center mt-4">
-      <section className="flex w-full max-w-325 h-180 bg-white py-5 px-4">
-        <section className={`relative md:absolute w-full max-w-325 md:w-80 h-170 bg-white z-10 py-2 pl-1 pr-5
-          ${isOpen ? "" : ""} transition-all duration-700 ease-in-out`}>
+      <div className="flex max-md:flex-col w-full max-w-325 bg-white overflow-hidden h-185 rounded">
+        <div className="block md:hidden">
           <InfoMap />
-        </section>
-        <Button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-10 h-14 relative z-50 top-0 left-80 bg-[#a6bbf5] rounded-l-none text-white hover:text-black cursor-pointer shadow-md transition-all duration-300 hidden md:flex"
-        >
-          <ChevronLeft className={`transition-transform duration-700 ${!isOpen ? "rotate-180" : ""}`} />
-        </Button>
-        <section className="w-full max-w-317 h-170">
-          <Skeleton className="w-full max-w-325 h-full rounded bg-amber-200" />
-        </section>
-      </section>
+        </div>
+        <SidebarProvider open={isOpen} onOpenChange={setIsOpen} className="w-full h-full min-h-full">
+          <Sidebar
+            collapsible="none"
+            className={`
+              w-[20rem] border-r bg-white transition-all ease-in-out hidden md:block
+              duration-700 
+              ${isOpen ? "ml-0" : "-ml-[20rem]"}
+            `}
+          >
+            {/* min-w-[20rem] impede que o texto quebre ou diminua durante a animação */}
+            <SidebarContent className="min-w-[19rem]">
+              <SidebarGroup>
+                {/* gap-3 aproxima os blocos de texto */}
+                <SidebarGroupContent className="p-0">
+                  <InfoMap />
+                </SidebarGroupContent>
+              </SidebarGroup>
+            </SidebarContent>
+          </Sidebar>
+
+          <SidebarInset className="p-0 m-0 bg-transparent flex-1 overflow-hidden">
+            <SidebarTrigger
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-10 h-14 absolute z-50 top-0 left-0 bg-[#a6bbf5] rounded-l-none text-white hover:text-black cursor-pointer shadow-md transition-all duration-300 hidden md:flex"
+            >
+              {/* O ícone também gira suavemente na mesma velocidade da sidebar (duration-700) */}
+              <ChevronLeft className={`transition-transform duration-700 ${!isOpen ? "rotate-180" : ""}`} />
+            </SidebarTrigger>
+
+            <Skeleton className="w-full h-full bg-gray-300 rounded-none">LOREM IPSUM.</Skeleton>
+          </SidebarInset>
+        </SidebarProvider>
+      </div>
     </main>
   );
 }
