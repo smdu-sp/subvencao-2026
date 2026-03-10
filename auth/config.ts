@@ -13,15 +13,12 @@ export const authConfig = {
 			authorize: async (credentials) => {
 				const { login, senha } = credentials ?? {};
 				if (!login || !senha) return null;
-
 				const resposta = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ login, senha }),
 				});
-
 				if (!resposta.ok) return null;
-
 				return resposta.json();
 			},
 		}),

@@ -10,13 +10,15 @@ export async function POST(req: NextRequest) {
 	const usuario = await db.usuario.findUnique({ where: { login } });
 	if (!usuario)
 		return NextResponse.json({ erro: 'Usuário não encontrado.' }, { status: 404 });
-	const url = `${process.env.SMUL_AUTH_URL}/ldap/autenticar`;
-	const resposta = await fetch(url, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ login, senha }),
-	});
-	if (!resposta.ok) return NextResponse.json({ erro: 'Credenciais inválidas.' }, { status: 401 });
+	if (process.env.ENVIRONMENT !== "local") {
+		const url = `${process.env.SMUL_AUTH_URL}/ldap/autenticar`;
+		const resposta = await fetch(url, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ login, senha }),
+		});
+		if (!resposta.ok) return NextResponse.json({ erro: 'Credenciais inválidas.' }, { status: 401 });
+	}
 	return NextResponse.json({
 		id: usuario.id,
 		email: usuario.email,
