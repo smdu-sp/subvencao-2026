@@ -11,19 +11,12 @@ const MapView = dynamic(() => import("@/components/map").then((m) => m.MapView),
   loading: () => <div className="w-full h-full bg-muted animate-pulse rounded" />,
 });
 
-export function InfoMap() {
-  return (
-    <div className="">
-    </div>
-  );
-}
-
 export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
     <main className="flex justify-center mt-4">
-      <section className="flex max-md:flex-col max-md:gap-5 relative w-full max-w-325 md:h-180 bg-white py-5 px-4">
+      <section className="flex max-md:flex-col max-md:gap-5 relative w-full max-w-360 md:h-180 bg-white py-5 px-4">
         <section className={`w-full md:absolute md:h-170 top-5 left-4 bg-white z-10 overflow-hidden shrink-0
           md:transition-[width] md:duration-700 md:ease-in-out ${isOpen ? "md:w-80" : "md:w-0"}`}>
           <div className="flex flex-col gap-3 min-w-80 pl-1 pr-5">

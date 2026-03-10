@@ -10,6 +10,7 @@ const routeTitles: Record<string, string> = {
   "/editais": "Editais",
   "/prestacao-de-contas": "Prestação de Contas",
   "/transparencia": "Transparência",
+  "/simulacao": "Simulação de Valor de Subvenção",
 };
 
 const RouteHeader = () => {
@@ -19,7 +20,7 @@ const RouteHeader = () => {
     return <Header />;
   }
 
-  const title = routeTitles[pathname] ?? "Página";
+  const title = routeTitles[pathname] ?? "Página não encontrada";
 
   return (
     <header className="text-white flex flex-col items-center justify-center w-full">
@@ -29,9 +30,9 @@ const RouteHeader = () => {
             <Image src="/header.png" alt="Logo" width={1300} height={133} className="max-h-33.25" />
           </Link>
         </div>
-        <div className="mx-auto mt-3 w-full max-w-325 sm:mt-4 ">
-          <div className="w-full max-w-325 rounded-sm bg-(--button-background) min-h-16 text-base font-bold text-white text-[26px]">
-            <p className="mx-auto w-full min-h-16 flex items-center max-w-215 text-center md:text-left">{title}</p>
+        <div className="mx-auto mt-3 w-full max-w-325 sm:mt-4">
+          <div className="w-full max-w-325 max-[1310px]:rounded-none rounded-sm bg-(--button-background) min-h-16 text-base font-bold text-white text-[26px]">
+            <p className="mx-auto w-full min-h-16 flex items-center max-w-215 text-center md:text-left px-5">{title}</p>
           </div>
         </div>
       </nav>

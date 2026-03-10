@@ -17,7 +17,7 @@ const MAPTILER_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY ?? "YOUR_MAPTILER_KEY"
 const SP_CENTER = fromLonLat([-46.6393, -23.5505]);
 
 // Limite de pan: região central de SP [minLon, minLat, maxLon, maxLat]
-const SP_EXTENT = transformExtent([-46.71, -23.59, -46.56, -23.51], "EPSG:4326", "EPSG:3857");
+const SP_EXTENT = transformExtent([-46.71, -23.595, -46.56, -23.505], "EPSG:4326", "EPSG:3857");
 const geojsonFormat = new GeoJSON({ featureProjection: "EPSG:3857" });
 
 export const CHAMAMENTO_COLORS: Record<string, string> = {

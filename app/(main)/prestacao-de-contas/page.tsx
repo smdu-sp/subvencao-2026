@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import GoBack from "../components/GoBack";
+import GoBack from "../../../components/GoBack";
 import { RiArrowDownSFill, RiFolderLine } from "react-icons/ri";
 
 const termos = [
@@ -24,12 +24,8 @@ const Prestacao = () => {
   const [arquivo, setArquivo] = useState<File | null>(null);
 
   return (
-    <main className="flex justify-center px-4 sm:px-6">
-      <div className="flex w-full max-w-228 flex-col items-start gap-8 rounded-lg px-0 py-6 sm:p-8">
-        <GoBack />
-        <div>
-          <p className="text-lg">Nesta página o subvencionado enviará os documentos e arquivos relacionados à prestação de contas da iniciativa.</p>
-        </div>
+    <div className="text-black max-w-6xl mx-auto px-4 mt-5 pt-11 bg-white">
+        <p className="text-lg">Nesta página o subvencionado enviará os documentos e arquivos relacionados à prestação de contas da iniciativa.</p>
         <div className="flex flex-col gap-0">
           <strong>Entenda as regras</strong>
           <Link
@@ -124,24 +120,8 @@ const Prestacao = () => {
           <button type="button" className="w-full rounded-sm bg-[#8DA3D8] py-2 text-xl font-bold text-white sm:w-45 sm:text-2xl">
             Enviar
           </button>
-
-          <div className="mt-10 w-full rounded-sm bg-[#E6E6E8] px-2 py-4 text-base leading-relaxed text-black">
-            <p className="text-sm">
-              Denúncias de irregularidades devem ser encaminhadas para o e-mail{" "}
-              <a href="mailto:subvencao@prefeitura.sp.gov.br" className="underline">
-                subvencao@prefeitura.sp.gov.br
-              </a>
-            </p>
-            <p className="text-sm">
-              Material de apoio | Logos Oficiais SMUL e Prefeitura de São Paulo:{" "}
-              <Link href="mailto:subvencao@prefeitura.sp.gov.br" target="_blank" className="underline">
-                Logos | Identidade 2023 | Oficiais - Google Drive
-              </Link>
-            </p>
-          </div>
         </div>
-      </div>
-    </main>
+    </div>
   );
 };
 

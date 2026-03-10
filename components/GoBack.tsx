@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
+
 import { RiArrowGoBackLine } from "react-icons/ri";
 import { DM_Sans } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -9,11 +12,12 @@ const dmSans = DM_Sans({
 });
 
 const GoBack = () => {
+  const router = useRouter()
   return (
-    <Link href="/" className={`flex items-center mt-4 gap-2 text-base text-black ${dmSans.className}`}>
+    <Button variant="link" onClick={() => router.back()} className={`flex items-center mt-4 gap-2 px-0 text-base text-black ${dmSans.className} w-fit`}>
       <RiArrowGoBackLine size={20} />
       Voltar
-    </Link>
+    </Button>
   );
 };
 

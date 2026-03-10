@@ -14,5 +14,9 @@ export const titles = [
   {
     id: 4,
     title: "Transparência | Subvenção para requalificação de imóveis no centro",
+  },
+  {
+    id: 4,
+    title: "Simulação | Subvenção para requalificação de imóveis no centro",
   }
 ];
