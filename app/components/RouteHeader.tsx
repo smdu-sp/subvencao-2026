@@ -8,7 +8,7 @@ import Header from "./Header";
 const routeTitles: Record<string, string> = {
   "/inscricoes": "Inscrições",
   "/editais": "Editais",
-  "/prestacao": "Prestação de Contas",
+  "/prestacao-de-contas": "Prestação de Contas",
   "/transparencia": "Transparência",
 };
 

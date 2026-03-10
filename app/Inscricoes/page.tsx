@@ -9,12 +9,11 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-const links = [
-  "https://processos.prefeitura.sp.gov.br/Forms/PedidoEletronico1.aspx",
-  "https://capital.sp.gov.br/web/fazenda/servicos/senhaweb",
-  "https://subvencao.prefeitura.sp.gov.br/wp-content/uploads/2025/04/Passo-a-Passo-de-acesso-ao-Portal-de-Processos-da-PMSP-1.pdf",
-  "https://processos.prefeitura.sp.gov.br/Forms/PedidoEletronico1.aspx",
-];
+const links = {
+  inscricao: "https://processos.prefeitura.sp.gov.br/Forms/PedidoEletronico1.aspx",
+  senhaweb: "https://capital.sp.gov.br/web/fazenda/servicos/senhaweb",
+  solicitacao_acesso: "https://subvencao.prefeitura.sp.gov.br/wp-content/uploads/2025/04/Passo-a-Passo-de-acesso-ao-Portal-de-Processos-da-PMSP-1.pdf",
+};
 
 const Inscricoes = () => {
   return (
@@ -31,7 +30,7 @@ const Inscricoes = () => {
             </p>
           </div>
           <div className="bg-[#e7e6f0] p-4 text-[18px] mt-4.5 mb-9 w-fit rounded-sm">
-            <a href={links[0]} className="inline-flex items-center gap-2 p-1" target="_blank" rel="noopener noreferrer">
+            <a href={links.inscricao} className="inline-flex items-center gap-2 p-1" target="_blank" rel="noopener noreferrer">
               <span>
                 <strong>Faça sua inscrição!</strong>
               </span>
@@ -49,7 +48,7 @@ const Inscricoes = () => {
             </p>
             <p className="mb-5">
               Para cadastro e maiores informações,{" "}
-              <a className="underline text-[#0a3297]" href={links[1]} target="_blank" rel="noopener noreferrer">
+              <a className="underline text-[#0a3297]" href={links.senhaweb} target="_blank" rel="noopener noreferrer">
                 consulte o site.
               </a>
             </p>
@@ -63,7 +62,7 @@ const Inscricoes = () => {
           <div className="text-[18px]">
             <p className="mb-5">
               Confira o passo a passo para a solicitação no Portal de Processos da PMSP:{" "}
-              <a className="underline text-[#0a3297]" href={links[2]} target="_blank" rel="noopener noreferrer">
+              <a className="underline text-[#0a3297]" href={links.solicitacao_acesso} target="_blank" rel="noopener noreferrer">
                 clique aqui
               </a>
             </p>
@@ -84,7 +83,7 @@ const Inscricoes = () => {
             </p>
             <p className="mb-5">
               Caso você já tenha a SenhaWeb,{" "}
-              <a className="underline text-[#0a3297]" href={links[3]} target="_blank" rel="noopener noreferrer">
+              <a className="underline text-[#0a3297]" href={links.inscricao} target="_blank" rel="noopener noreferrer">
                 INSCREVA-SE AQUI
               </a>
             </p>

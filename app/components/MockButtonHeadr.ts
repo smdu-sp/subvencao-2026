@@ -13,7 +13,7 @@ export const MockButtonHeader = [
     id: 3,
     label: "Prestação de Contas",
     subLabel: "para subvencionados",
-    href: "/prestacao",
+    href: "/prestacao-de-contas",
   },
   {
     id: 4,
