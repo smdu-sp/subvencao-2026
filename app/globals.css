@@ -5,7 +5,7 @@
 /* Adicione esta linha para carregar as animações corretamente no Tailwind v4 */
 @plugin "tailwindcss-animate";
 
-@import "shadcn/tailwind.css";
+/* @import "shadcn/tailwind.css"; */
 
 @custom-variant dark (&:is(.dark *));
 
