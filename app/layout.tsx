@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import RouteHeader from "../components/RouteHeader";
 import { DM_Sans } from "next/font/google";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Subvenção para requalificação de imóveis no centro",
@@ -17,8 +18,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR">
       <body className={`${dmSans.className} antialiased bg-[#f7f7f9] min-h-screen`}>
+        <section className="sr-only">
+          <Link href="#main-content" className="focus:not-sr-only focus:absolute focus:top-5 focus:left-5 focus:bg-white focus:p-2 focus:rounded">
+            Ir para o conteúdo principal
+          </Link>
+        </section>
         <RouteHeader />
-        {children}
+        <section id="main-content">
+          {children}
+        </section>
       </body>
     </html>
   );
