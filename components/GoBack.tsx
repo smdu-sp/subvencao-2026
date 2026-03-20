@@ -12,11 +12,18 @@ const dmSans = DM_Sans({
 });
 
 const GoBack = () => {
-  const router = useRouter()
+  const router = useRouter();
+
   return (
-    <Button variant="link" onClick={() => router.back()} className={`flex items-center mt-4 gap-2 px-0 text-base text-black ${dmSans.className} w-fit`}>
-      <RiArrowGoBackLine size={20} />
-      Voltar
+    <Button
+      type="button"
+      variant="link"
+      onClick={() => router.back()}
+      aria-label="Voltar para a página anterior"
+      className={`flex items-center mt-4 gap-2 px-0 text-base text-black ${dmSans.className} w-fit`}
+    >
+      <RiArrowGoBackLine size={20} aria-hidden="true" />
+      <span>Voltar</span>
     </Button>
   );
 };

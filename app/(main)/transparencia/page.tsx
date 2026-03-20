@@ -14,7 +14,7 @@ const dmSans = DM_Sans({
   weight: ["400", "700"],
   variable: "--font-dm-sans",
 });
-// TODO: Verificar dois asides existentes
+
 const Transparencia = () => {
   return (
     <main id="main-content">
@@ -90,39 +90,6 @@ const Transparencia = () => {
             />
           ))}
         </section>
-
-        {/* <aside
-          aria-labelledby="titulo-contato-denuncia"
-          className="mt-20 w-full rounded-sm bg-[#f6f6f8] px-4 py-4 text-base leading-relaxed"
-        >
-          <h2 id="titulo-contato-denuncia" className="sr-only">
-            Contato e denúncias
-          </h2>
-
-          <p className="text-sm">
-            Denúncias de irregularidades devem ser encaminhadas para o e-mail{" "}
-            <a
-              href="mailto:subvencao@prefeitura.sp.gov.br"
-              className="underline"
-            >
-              subvencao@prefeitura.sp.gov.br
-            </a>
-          </p>
-
-          <p className="text-sm mt-2">
-            Material de apoio — Logos oficiais da Secretaria Municipal de
-            Urbanismo e Licenciamento e da Prefeitura de São Paulo:{" "}
-            <a
-              href="https://drive.google.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              Acessar pasta de logos oficiais no Google Drive
-              <span className="sr-only"> (abre em nova aba)</span>
-            </a>
-          </p>
-        </aside> */}
       </section>
     </main>
   );
