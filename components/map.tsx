@@ -28,8 +28,8 @@ export const CHAMAMENTO_COLORS: Record<string, string> = {
 
 export const LEGEND_ITEMS = [
   { label: "Perímetro Requalifica Centro", type: "polygon" as const, color: "#1a3c8f" },
-  { label: "AIU Consolidado", type: "polygon-dashed" as const, color: "#e07b00" },
   { label: "AIU Expandido", type: "polygon-dashed" as const, color: "#9b59b6" },
+  { label: "AIU Dissolvido", type: "polygon-dashed" as const, color: "#2e8b57" },
   { label: "1º Chamamento Público", type: "point" as const, color: CHAMAMENTO_COLORS["01/2023/SMUL"] },
   { label: "2º Chamamento Público", type: "point" as const, color: CHAMAMENTO_COLORS["02/2024/SMUL"] },
   { label: "3º Chamamento Público", type: "point" as const, color: CHAMAMENTO_COLORS["01/2025/SMUL"] },
@@ -46,11 +46,11 @@ function vectorLayer(url: string, style: Style | ((f: FeatureLike) => Style)) {
 const stylePerimetroGeral = new Style({
   stroke: new Stroke({ color: "#1a3c8f", width: 2 }),
 });
-const styleAIUConsolidado = new Style({
-  stroke: new Stroke({ color: "#e07b00", width: 2, lineDash: [6, 4] }),
-});
 const styleAIUExpandido = new Style({
   stroke: new Stroke({ color: "#9b59b6", width: 2, lineDash: [6, 4] }),
+});
+const styleAIUDissolvido = new Style({
+  stroke: new Stroke({ color: "#2e8b57", width: 2, lineDash: [6, 4] }),
 });
 
 function makeStyleEmpreendimento(radiusRef: React.RefObject<number>) {
@@ -90,8 +90,8 @@ export function MapView({ onMoveEnd, pointRadius = 4 }: MapViewProps) {
           }),
         }),
         vectorLayer("/api/map/requalificaCentro", stylePerimetroGeral),
-        vectorLayer("/api/map/perimetroConsolidado", styleAIUConsolidado),
         vectorLayer("/api/map/perimetroExpandido", styleAIUExpandido),
+        vectorLayer("/api/map/perimetroAIUDissolvido", styleAIUDissolvido),
         (empreendimentosLayerRef.current = vectorLayer("/api/map/empreendimentos", makeStyleEmpreendimento(pointRadiusRef))),
       ],
       view: new View({ center: SP_CENTER, zoom: 13.5, minZoom: 12.5, maxZoom: 17, extent: SP_EXTENT }),

@@ -11,14 +11,15 @@ proj4.defs(
 );
 const toWGS84 = proj4("EPSG:31983", "WGS84");
 
-const GPKG_PATH = path.join(process.cwd(), "public", "map", "shapes.gpkg");
+const GPKG_MAIN = path.join(process.cwd(), "public", "map", "shapes.gpkg");
+const GPKG_1    = path.join(process.cwd(), "public", "map", "shapes1.gpkg");
 
-export const LAYERS = {
-  perimetroConsolidado: 'shapes_subvencao_site — perimetro_aiu_consolidado_',
-  perimetroExpandido: 'shapes_subvencao_site — perimetro_aiu_expandido',
-  requalificaCentro: 'shapes_subvencao_site — requalifica_centro_perimetro_geral',
-  empreendimentos: 'shapes_subvencao_site — subvencao_economica',
-} as const;
+export const LAYERS: Record<string, { table: string; file: string }> = {
+  perimetroExpandido:     { table: '0shapes_subvencao_site — perimetro_aiu_expandido',              file: GPKG_MAIN },
+  requalificaCentro:      { table: '0shapes_subvencao_site — requalifica_centro_perimetro_geral',   file: GPKG_MAIN },
+  empreendimentos:        { table: '0shapes_subvencao_site — subvencao_economica',                  file: GPKG_MAIN },
+  perimetroAIUDissolvido: { table: '0shapes_subvencao_site- perimetro_aiu_dissolvido',                   file: GPKG_1    },
+};
 
 export type LayerKey = keyof typeof LAYERS;
 
@@ -76,8 +77,8 @@ function fixRowEncoding(row: Record<string, unknown>): Record<string, unknown> {
 }
 
 export function readLayer(layerKey: LayerKey): GeoJSON.FeatureCollection {
-  const tableName = LAYERS[layerKey];
-  const db = new Database(GPKG_PATH, { readonly: true });
+  const { table: tableName, file } = LAYERS[layerKey];
+  const db = new Database(file, { readonly: true });
 
   const rows = db.prepare(`SELECT * FROM "${tableName}"`).all() as Record<string, unknown>[];
   db.close();
