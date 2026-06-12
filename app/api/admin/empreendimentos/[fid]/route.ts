@@ -15,6 +15,8 @@ export async function PUT(
   req: Request,
   { params }: { params: Promise<{ fid: string }> }
 ) {
+  if (process.env.ENVIRONMENT === "production")
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
   try {
     const { fid } = await params;
     const fidNum = parseInt(fid, 10);

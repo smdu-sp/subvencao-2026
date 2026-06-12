@@ -12,6 +12,8 @@ function decodeText(v: unknown): unknown {
 }
 
 export async function GET() {
+  if (process.env.ENVIRONMENT === "production")
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
   const db = new Database(GPKG, { readonly: true });
   const rows = db.prepare(
     `SELECT fid, cd_identif, cd_chamame, cd_numero_, cd_protoco, cd_process,
