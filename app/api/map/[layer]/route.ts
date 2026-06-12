@@ -11,6 +11,6 @@ export async function GET(
     return NextResponse.json({ error: "Layer not found" }, { status: 404 });
   }
 
-  const geojson = readLayer(layer as LayerKey);
+  const geojson = await readLayer(layer as LayerKey);
   return NextResponse.json(geojson);
 }
