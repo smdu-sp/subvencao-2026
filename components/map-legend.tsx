@@ -22,18 +22,12 @@ function LegendIcon({
   color: string;
   fill: string | undefined;
 }) {
-  if (type === "polygon-dashed") {
+  if (type === "point") {
     return (
-      <svg width="28" height="14" className="shrink-0">
-        <rect
-          x="1" y="2" width="24" height="8"
-          fill="transparent"
-          stroke={color}
-          strokeWidth="1.5"
-          strokeDasharray="4 3"
-          rx="1"
-        />
-      </svg>
+      <span
+        className="inline-block w-3.5 h-3.5 mx-1.5 rounded-full shrink-0"
+        style={{ backgroundColor: color }}
+      />
     );
   }
 

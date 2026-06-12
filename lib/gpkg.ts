@@ -1,4 +1,7 @@
+import Database from "better-sqlite3";
+import wkx from "wkx";
 import proj4 from "proj4";
+import iconv from "iconv-lite";
 import path from "path";
 import * as shapefile from "shapefile";
 
@@ -8,13 +11,16 @@ proj4.defs(
 );
 const toWGS84 = proj4("EPSG:31983", "WGS84");
 
+const MAP_DIR     = path.join(process.cwd(), "public", "map");
 const NEW_MAP_DIR = path.join(process.cwd(), "public", "new_map");
 
-export const LAYERS: Record<string, string> = {
-  perimetroExpandido:       path.join(NEW_MAP_DIR, "perimetro_aiu_expandido.shp"),
-  requalificaCentro:        path.join(NEW_MAP_DIR, "perimetro_requalifica_centro_original.shp"),
-  perimetroSubvencaoHisHmp: path.join(NEW_MAP_DIR, "perimetro_subvencao_his_hmp.shp"),
-  perimetroSubvencaoPadrao: path.join(NEW_MAP_DIR, "perimetro_subvencao_padrao.shp"),
+type ShpLayer  = { type: "shp";  file: string };
+type GpkgLayer = { type: "gpkg"; file: string; table: string };
+
+export const LAYERS: Record<string, ShpLayer | GpkgLayer> = {
+  perimetroSubvencaoHisHmp: { type: "shp",  file: path.join(NEW_MAP_DIR, "perimetro_subvencao_his_hmp.shp") },
+  perimetroSubvencaoPadrao: { type: "shp",  file: path.join(NEW_MAP_DIR, "perimetro_subvencao_padrao.shp") },
+  empreendimentos:          { type: "gpkg", file: path.join(MAP_DIR, "shapes.gpkg"), table: '0shapes_subvencao_site — subvencao_economica' },
 };
 
 export type LayerKey = keyof typeof LAYERS;
@@ -47,8 +53,44 @@ function reprojectGeometry(geom: GeoJSON.Geometry): GeoJSON.Geometry {
   return geom;
 }
 
-export async function readLayer(layerKey: LayerKey): Promise<GeoJSON.FeatureCollection> {
-  const source = await shapefile.open(LAYERS[layerKey]);
+function fixEncoding(value: unknown): unknown {
+  if (typeof value !== "string") return value;
+  return iconv.decode(Buffer.from(value, "latin1"), "UTF-8");
+}
+
+function fixRowEncoding(row: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(Object.entries(row).map(([k, v]) => [k, fixEncoding(v)]));
+}
+
+function parseGpkgGeom(blob: Buffer): wkx.Geometry {
+  const flags = blob[3];
+  const envelopeType = (flags >> 1) & 0x07;
+  const envelopeSizes = [0, 32, 48, 48, 64];
+  const headerSize = 8 + (envelopeSizes[envelopeType] ?? 0);
+  return wkx.Geometry.parse(blob.slice(headerSize));
+}
+
+function readGpkgLayer(layer: GpkgLayer): GeoJSON.FeatureCollection {
+  const db = new Database(layer.file, { readonly: true });
+  const rows = db.prepare(`SELECT * FROM "${layer.table}"`).all() as Record<string, unknown>[];
+  db.close();
+
+  const features: GeoJSON.Feature[] = rows.map((row) => {
+    const wkxGeom = parseGpkgGeom(row.geom as Buffer);
+    const reprojected = reprojectGeometry(wkxGeom.toGeoJSON() as GeoJSON.Geometry);
+    const { geom: _geom, ...rawProperties } = row;
+    return {
+      type: "Feature",
+      geometry: reprojected,
+      properties: fixRowEncoding(rawProperties) as GeoJSON.GeoJsonProperties,
+    };
+  });
+
+  return { type: "FeatureCollection", features };
+}
+
+async function readShpLayer(layer: ShpLayer): Promise<GeoJSON.FeatureCollection> {
+  const source = await shapefile.open(layer.file);
   const features: GeoJSON.Feature[] = [];
 
   let result = await source.read();
@@ -60,4 +102,10 @@ export async function readLayer(layerKey: LayerKey): Promise<GeoJSON.FeatureColl
   }
 
   return { type: "FeatureCollection", features };
+}
+
+export async function readLayer(layerKey: LayerKey): Promise<GeoJSON.FeatureCollection> {
+  const layer = LAYERS[layerKey];
+  if (layer.type === "gpkg") return readGpkgLayer(layer);
+  return readShpLayer(layer);
 }
