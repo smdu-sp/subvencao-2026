@@ -70,6 +70,19 @@ function parseGpkgGeom(blob: Buffer): wkx.Geometry {
   return wkx.Geometry.parse(blob.slice(headerSize));
 }
 
+// Correções manuais para registros com encoding corrompido na origem
+const EMPREENDIMENTOS_FIXES: Record<number, Partial<Record<string, string>>> = {
+   3: { tx_enderec: "Rua Álvares Penteado, 75" },
+   7: { tx_enderec: "Avenida Brigadeiro Luís Antônio, 487" },
+   8: { tx_enderec: "Avenida Ipiranga, 952 - República, São Paulo - SP" },
+   9: { tx_enderec: "Avenida Duque de Caxias, 408 - Santa Ifigênia, São Paulo - SP" },
+  10: { tx_enderec: "Rua Martins Fontes, 197 - República, São Paulo - SP", nm_interes: "SM01 - Edifício Virginia SPE S/A" },
+  11: { tx_enderec: "Rua José Bonifácio, 237", nm_interes: "Projetech: Projetos Técnicos e Sociais" },
+  12: { tx_enderec: "Avenida São João, 588", nm_interes: "Associação Portal da Juta - 1º de Maio" },
+  14: { tx_enderec: "Largo da Misericórdia, 20" },
+  15: { tx_enderec: "Rua Marquês de Itu, 80" },
+};
+
 function readGpkgLayer(layer: GpkgLayer): GeoJSON.FeatureCollection {
   const db = new Database(layer.file, { readonly: true });
   const rows = db.prepare(`SELECT * FROM "${layer.table}"`).all() as Record<string, unknown>[];
@@ -79,10 +92,13 @@ function readGpkgLayer(layer: GpkgLayer): GeoJSON.FeatureCollection {
     const wkxGeom = parseGpkgGeom(row.geom as Buffer);
     const reprojected = reprojectGeometry(wkxGeom.toGeoJSON() as GeoJSON.Geometry);
     const { geom: _geom, ...rawProperties } = row;
+    const properties = fixRowEncoding(rawProperties) as Record<string, unknown>;
+    const fixes = EMPREENDIMENTOS_FIXES[row.fid as number];
+    if (fixes) Object.assign(properties, fixes);
     return {
       type: "Feature",
       geometry: reprojected,
-      properties: fixRowEncoding(rawProperties) as GeoJSON.GeoJsonProperties,
+      properties: properties as GeoJSON.GeoJsonProperties,
     };
   });
 
