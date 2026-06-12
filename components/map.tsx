@@ -14,9 +14,9 @@ import type { FeatureLike } from "ol/Feature";
 import "ol/ol.css";
 
 const MAPTILER_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY ?? "YOUR_MAPTILER_KEY";
-const SP_CENTER = fromLonLat([-46.6393, -23.5505]);
+const SP_CENTER = fromLonLat([-46.6392, -23.549]);
 
-const SP_EXTENT = transformExtent([-46.71, -23.595, -46.56, -23.505], "EPSG:4326", "EPSG:3857");
+const SP_EXTENT = transformExtent([-46.74, -23.598, -46.56, -23.505], "EPSG:4326", "EPSG:3857");
 const geojsonFormat = new GeoJSON({ featureProjection: "EPSG:3857" });
 
 export const CHAMAMENTO_COLORS: Record<string, string> = {
@@ -26,8 +26,8 @@ export const CHAMAMENTO_COLORS: Record<string, string> = {
 };
 
 export const LEGEND_ITEMS = [
-  { label: "HIS-1, HIS-2, HMP, R2v e nR", type: "polygon" as const, color: "#5a6fa8", fill: "rgba(170,185,220,0.60)" },
-  { label: "HIS-1, HIS-2 e HMP",          type: "polygon" as const, color: "#c8a832", fill: "rgba(232,208,122,0.55)" },
+  { label: "HIS-1, HIS-2, HMP, R2v e nR", type: "polygon" as const, color: "#c8a832", fill: "rgba(232,208,122,0.55)" },
+  { label: "HIS-1, HIS-2 e HMP",          type: "polygon" as const, color: "#5a6fa8", fill: "rgba(170,185,220,0.60)" },
   { label: "1º Chamamento Público",        type: "point" as const,   color: CHAMAMENTO_COLORS["01/2023/SMUL"], fill: undefined },
   { label: "2º Chamamento Público",        type: "point" as const,   color: CHAMAMENTO_COLORS["02/2024/SMUL"], fill: undefined },
   { label: "3º Chamamento Público",        type: "point" as const,   color: CHAMAMENTO_COLORS["01/2025/SMUL"], fill: undefined },
@@ -103,7 +103,7 @@ export function MapView({ onMoveEnd, pointRadius = 4 }: MapViewProps) {
         vectorLayer("/api/map/perimetroSubvencaoHisHmp", styleSubvencaoHisHmp),
         empreendimentosLayer,
       ],
-      view: new View({ center: SP_CENTER, zoom: 13.5, minZoom: 12.5, maxZoom: 17, extent: SP_EXTENT }),
+      view: new View({ center: SP_CENTER, zoom: 13.2, minZoom: 12.5, maxZoom: 17, extent: SP_EXTENT }),
       controls: [],
     });
 
