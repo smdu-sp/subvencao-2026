@@ -19,7 +19,15 @@ const Header = () => {
               alt="Prefeitura de São Paulo — Programa de Subvenção Econômica para requalificação de imóveis no centro"
               width={1440}
               height={147.31}
-              className="w-full h-auto"
+              className="hidden md:block w-full h-auto"
+              priority
+            />
+            <Image
+              src="/header-mobile.png"
+              alt="Prefeitura de São Paulo — Programa de Subvenção Econômica para requalificação de imóveis no centro"
+              width={768}
+              height={200}
+              className="block md:hidden w-full h-auto"
               priority
             />
           </Link>
