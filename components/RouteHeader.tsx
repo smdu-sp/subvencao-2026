@@ -27,7 +27,7 @@ const RouteHeader = () => {
       <nav className="w-full max-w-325">
         <div className="w-full flex justify-center items-center">
           <Link href="/" className="flex max-w-8xl justify-center items-center">
-            <Image src="/header.png" alt="Logo" width={1300} height={133} className="max-h-33.25" />
+            <Image src="/header.png" alt="Logo" width={1300} height={133} className="w-full h-auto max-h-33.25" />
           </Link>
         </div>
         <div className="mx-auto mt-3 w-full max-w-325 sm:mt-4">
