@@ -18,24 +18,19 @@ const Inscricoes = () => {
             id="titulo-chamamento"
             className="text-[#0a3297] text-[26px] font-bold"
           >
-            Chamamento Público nº 01/2025/SMUL
+            Fique atento!
           </h1>
         </header>
 
         <div className="text-[18px]">
-          <strong>Inscrições de 18/04/2025 a 06/07/2025</strong>
+          {/* <strong>Inscrições de 18/04/2025 a 06/07/2025</strong> */}
 
           <p>
-            A Prefeitura de São Paulo, por meio da Secretaria Municipal de
-            Urbanismo e Licenciamento (SMUL), abriu o{" "}
-            <strong>terceiro chamamento público</strong> para que interessados
-            em <strong>requalificar imóveis no centro da cidade</strong>{" "}
-            apresentem seus projetos e solicitem subvenção econômica do
-            Município para executar as obras.
+            A Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento (SMUL), abrirá, em breve, novo chamamento público para que interessados em requalificar imóveis no centro da cidade apresentem seus projetos e solicitem subvenção econômica do Município para executar as obras.
           </p>
         </div>
 
-        <div className="bg-[#e7e6f0] p-4 text-[18px] mt-4.5 mb-9 w-fit rounded-sm">
+        {/* <div className="bg-[#e7e6f0] p-4 text-[18px] mt-4.5 mb-9 w-fit rounded-sm">
           <a
             href={links.inscricao}
             className="inline-flex items-center gap-2 p-1"
@@ -53,7 +48,7 @@ const Inscricoes = () => {
 
             <span className="sr-only">(abre em nova aba)</span>
           </a>
-        </div>
+        </div> */}
 
         <section aria-labelledby="titulo-senhaweb">
           <h2 id="titulo-senhaweb" className="text-[26px] mb-5 font-bold">
