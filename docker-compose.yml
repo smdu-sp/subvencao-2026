@@ -13,6 +13,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_MAPTILER_KEY: ${NEXT_PUBLIC_MAPTILER_KEY}
     container_name: subvencao-2026
     restart: unless-stopped
     ports:
