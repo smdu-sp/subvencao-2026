@@ -56,6 +56,17 @@
   --button-background: #0a3297;
 }
 
+/* Fora de qualquer @layer → tem prioridade sobre @layer utilities do Tailwind */
+.route-header-title {
+  padding-inline: 2rem;
+}
+
+@media (min-width: 48rem) {
+  .route-header-title {
+    padding-inline: 0;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

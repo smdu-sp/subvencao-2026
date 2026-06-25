@@ -35,7 +35,7 @@ const RouteHeader = () => {
             className="w-full max-[1310px]:rounded-none rounded-sm bg-(--button-background) min-h-16 text-base font-bold text-white text-[26px]"
             style={{ viewTransitionName: "header-btn-" + pathname.replace(/^\//, "").replace(/\//g, "-") }}
           >
-            <p className="mx-auto w-full min-h-20 flex items-center max-w-215 text-center md:text-left px-5">{title}</p>
+            <div className="mx-auto w-full min-h-20 flex items-center max-w-215 text-center md:text-left route-header-title">{title}</div>
           </div>
         </div>
       </nav>

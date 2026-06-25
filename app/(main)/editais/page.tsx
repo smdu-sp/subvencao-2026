@@ -19,7 +19,7 @@ const Editais = () => {
     <main id="main-content">
       <section 
       aria-labelledby="titulo-editais"
-      className="text-black max-w-6xl mx-auto px-4 mt-5 pt-11 bg-white">
+      className="text-black max-w-6xl mx-auto px-4 mt-5 bg-white">
         <h1 id="titulo-editais" className={`${dmSans.className} text-2xl mb-6`}>
           Editais do Programa Requalifica Centro
         </h1>

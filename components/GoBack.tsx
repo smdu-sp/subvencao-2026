@@ -20,7 +20,7 @@ const GoBack = () => {
       variant="link"
       onClick={() => router.back()}
       aria-label="Voltar para a página anterior"
-      className={`flex items-center mt-4 gap-2 px-0 text-base text-black ${dmSans.className} w-fit`}
+      className={`flex items-center gap-2 px-0 text-base text-black ${dmSans.className} w-fit`}
     >
       <RiArrowGoBackLine size={20} aria-hidden="true" />
       <span>Voltar</span>

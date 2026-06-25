@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: subvencao-2026
+    restart: unless-stopped
+    ports:
+      - "3301:3301"
+    env_file:
+      - .env.production
+    # Permite que o container acesse o MySQL rodando no host via host.docker.internal
+    # Requer Docker >= 20.10. Se não funcionar, troque por --add-host no docker run
+    # ou coloque o IP real do servidor no DATABASE_URL
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
