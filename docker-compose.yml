@@ -1,4 +1,14 @@
 services:
+  migrate:
+    build:
+      context: .
+      target: builder
+    command: npx prisma migrate deploy
+    env_file:
+      - .env.production
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
   app:
     build:
       context: .
@@ -9,8 +19,8 @@ services:
       - "3301:3301"
     env_file:
       - .env.production
-    # Permite que o container acesse o MySQL rodando no host via host.docker.internal
-    # Requer Docker >= 20.10. Se não funcionar, troque por --add-host no docker run
-    # ou coloque o IP real do servidor no DATABASE_URL
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
