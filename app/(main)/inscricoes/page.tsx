@@ -26,7 +26,7 @@ const Inscricoes = () => {
           {/* <strong>Inscrições de 18/04/2025 a 06/07/2025</strong> */}
 
           <p>
-            A Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento (SMUL), abrirá, em breve, novo chamamento público para que interessados em requalificar imóveis no centro da cidade apresentem seus projetos e solicitem subvenção econômica do Município para executar as obras.
+            A Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento (SMUL), abrirá, em breve, novo Chamamento Público para que interessados em requalificar imóveis no centro da cidade apresentem seus projetos e solicitem subvenção econômica do Município para executar as obras.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ const Inscricoes = () => {
 
           <div className="text-[18px]">
             <p className="mb-5">
-              As <strong>SOLICITAÇÕES</strong> para este Chamamento Público
+              As <strong>SOLICITAÇÕES</strong> para os Chamamentos Públicos
               serão realizadas através do Portal de Processos.
             </p>
 
@@ -92,7 +92,7 @@ const Inscricoes = () => {
           </div>
         </section>
 
-        <section aria-labelledby="titulo-portal-processos">
+        {/* <section aria-labelledby="titulo-portal-processos">
           <h2
             id="titulo-portal-processos"
             className="text-[26px] mb-5 font-bold"
@@ -168,7 +168,7 @@ const Inscricoes = () => {
               .
             </p>
           </div>
-        </section>
+        </section> */}
       </section>
     </main>
   );

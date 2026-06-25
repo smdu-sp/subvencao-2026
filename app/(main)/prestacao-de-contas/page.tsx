@@ -39,9 +39,8 @@ const Prestacao = () => {
           relacionados à prestação de contas da iniciativa.
         </p>
 
-        <section className="flex flex-col gap-1 mt-4">
+        <section className="flex flex-col gap-1 mt-4 items-start">
           <strong>Entenda as regras</strong>
-
           <Link
             target="_blank"
             href="https://legislacao.prefeitura.sp.gov.br/leis/instrucao-normativa-secretaria-municipal-de-urbanismo-e-licenciamento-smul-1-de-16-de-outubro-de-2024/consolidado"
@@ -52,7 +51,7 @@ const Prestacao = () => {
           </Link>
         </section>
 
-        <section className="flex flex-col gap-1 mt-4">
+        <section className="flex flex-col gap-1 mt-4 items-start">
           <strong>Faça o download dos arquivos</strong>
 
           <Link
@@ -74,7 +73,7 @@ const Prestacao = () => {
           </Link>
         </section>
 
-        {/* Seleção de termo */}
+        {/* Seleção de termo
         <div className="w-full sm:w-[37vw] sm:min-w-105 mt-6">
           <label htmlFor="termoOutorga" className="text-lg font-semibold">
             Selecionar Termo de Outorga
@@ -128,7 +127,6 @@ const Prestacao = () => {
           </div>
         </div>
 
-        {/* Tipo de prestação */}
         <fieldset className="mt-8 flex flex-col gap-4">
           <legend className="text-lg font-semibold">
             Selecione o tipo de prestação de contas
@@ -161,7 +159,6 @@ const Prestacao = () => {
           </div>
         </fieldset>
 
-        {/* Upload */}
         <section className="mt-8 flex flex-col gap-4">
           <h2 className="text-lg font-semibold">
             Faça o upload dos seus documentos
@@ -204,8 +201,8 @@ const Prestacao = () => {
           type="button"
           className="mt-10 w-full rounded-sm bg-[#8DA3D8] py-2 text-xl font-bold text-white sm:w-45 sm:text-2xl"
         >
-          Enviar documentos
-        </button>
+          Enviar
+        </button> */}
       </section>
     </main>
   );
