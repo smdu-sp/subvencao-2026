@@ -3,7 +3,7 @@ import { RiExternalLinkLine } from "react-icons/ri";
 const links = {
   inscricao: "https://processos.prefeitura.sp.gov.br/Forms/PedidoEletronico1.aspx",
   senhaweb: "https://capital.sp.gov.br/web/fazenda/servicos/senhaweb",
-  solicitacao_acesso: "https://subvencao.prefeitura.sp.gov.br/wp-content/uploads/2025/04/Passo-a-Passo-de-acesso-ao-Portal-de-Processos-da-PMSP-1.pdf",
+  solicitacao_acesso: "/documents/Passo-a-Passo-de-acesso-ao-Portal-de-Processos-da-PMSP-1.pdf",
 };
 
 const Inscricoes = () => {

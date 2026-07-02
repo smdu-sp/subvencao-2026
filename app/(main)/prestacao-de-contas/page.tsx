@@ -56,7 +56,7 @@ const Prestacao = () => {
 
           <Link
             target="_blank"
-            href="https://subvencao.prefeitura.sp.gov.br/wp-content/uploads/2025/02/Anexo_I___Modelo_de_Declaracao_de_Prestacao_de_Contas.docx"
+            href="/documents/Anexo_I___Modelo_de_Declaracao_de_Prestacao_de_Contas.docx"
             className="text-(--button-background) underline"
           >
             Baixar Anexo I – Modelo de Declaração de Prestação de Contas
@@ -65,7 +65,7 @@ const Prestacao = () => {
 
           <Link
             target="_blank"
-            href="https://subvencao.prefeitura.sp.gov.br/wp-content/uploads/2025/02/Anexo_II___Modelo_de_Relatorio_Consolidado_da_Documentacao_Comprobatoria.docx"
+            href="/documents/Anexo_II___Modelo_de_Relatorio_Consolidado_da_Documentacao_Comprobatoria.docx"
             className="text-(--button-background) underline"
           >
             Baixar Anexo II – Relatório Consolidado da Documentação

@@ -40,6 +40,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# arquivos migrados do site antigo (grandes demais para versionar)
+/public/documents
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
