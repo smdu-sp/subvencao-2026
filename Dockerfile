@@ -5,7 +5,15 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci
 
-# Stage 2: build da aplicação Next.js
+# Stage 2: apenas para rodar `prisma migrate deploy` (evita empacotar o build inteiro do Next.js)
+FROM node:20-slim AS migrator
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY package.json package-lock.json* ./
+COPY prisma ./prisma
+CMD ["npx", "prisma", "migrate", "deploy"]
+
+# Stage 3: build da aplicação Next.js
 FROM node:20-slim AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -17,7 +25,7 @@ ENV NEXT_PUBLIC_MAPTILER_KEY=$NEXT_PUBLIC_MAPTILER_KEY
 RUN npx prisma generate
 RUN npm run build
 
-# Stage 3: imagem de produção mínima
+# Stage 4: imagem de produção mínima
 FROM node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production

@@ -2,7 +2,7 @@ services:
   migrate:
     build:
       context: .
-      target: builder
+      target: migrator
     command: npx prisma migrate deploy
     env_file:
       - .env.production
