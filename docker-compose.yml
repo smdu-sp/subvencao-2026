@@ -19,6 +19,8 @@ services:
     restart: unless-stopped
     ports:
       - "3301:3301"
+    volumes:
+      - ./public/documents:/app/public/documents
     env_file:
       - .env.production
     extra_hosts:
