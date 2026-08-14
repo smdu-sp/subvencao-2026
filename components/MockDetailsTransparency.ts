@@ -16,7 +16,7 @@ export const chamamentos2025 = [
           { label: "Pontuação", value: "89,7815" },
           { label: "% Subvenção", value: "22,45%" },
           { label: "Valor da Subvenção", value: "R$ 2.307.357,78", valueClassName: "text-(--button-background)" },
-          { label: "Valor pago", value: "R$ 1.153.678,86", valueClassName: "text-green-700" },
+          { label: "Valor pago", value: "R$ 2.068.622,00", valueClassName: "text-green-700" },
         ],
       },
       {
@@ -223,7 +223,7 @@ export const chamamentos2025 = [
         cards: [
           { label: "Pontuação", value: "60" },
           { label: "% Subvenção", value: "15%" },
-          { label: "Valor da Subvenção", value: "R$ 4.802.220,51", valueClassName: "text-(--button-background)" },
+          { label: "Valor da Subvenção", value: "R$ 4.504.020,51", valueClassName: "text-(--button-background)" },
           { label: "Valor pago", value: "R$ 0,00", valueClassName: "text-green-700" },
         ],
       },
@@ -344,7 +344,7 @@ export const chamamentos2024 = [
         cards: [
           { label: "Pontuação", value: "55" },
           { label: "% Subvenção", value: "13,75%" },
-          { label: "Valor da Subvenção", value: "R$ 919.695,58", valueClassName: "text-(--button-background)" },
+          { label: "Valor da Subvenção", value: "R$ 916.945,58", valueClassName: "text-(--button-background)" },
           { label: "Valor pago", value: "R$ 823.324,90", valueClassName: "text-green-700" },
         ],
       },
@@ -498,7 +498,7 @@ export const chamamentos2023 = [
           { label: "Pontuação", value: "44,34" },
           { label: "% Subvenção", value: "11,09%" },
           { label: "Valor da Subvenção", value: "R$ 869.833,29", valueClassName: "text-(--button-background)" },
-          { label: "Valor pago", value: "R$ 858.690,46", valueClassName: "text-green-700" },
+          { label: "Valor pago", value: "R$ 861.767,09", valueClassName: "text-green-700" },
         ],
       },
       {
