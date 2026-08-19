@@ -36,20 +36,21 @@ const Editais = () => {
               </h2>
 
               <p>
-                <span className="font-semibold">Objetivo:</span> Credenciar projetos que promovam
-                intervenções de requalificação edilícia em imóveis localizados
-                no perímetro do Programa Requalifica Centro ao recebimento de
-                subvenção econômica.
+                <span className="font-semibold">Objetivo:</span> {edital.objetivo}
               </p>
 
-              <a
-                className="text-blue-800 underline"
-                href={edital.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Saiba mais sobre o Chamamento Público nº {edital.numero} do Programa Requalifica Centro<span className="sr-only"> (abre em nova aba)</span>
-              </a>
+              {edital.links.map((link, linkIndex) => (
+                <a
+                  key={linkIndex}
+                  className="text-blue-800 underline"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
 
             {index !== editais.length - 1 && (

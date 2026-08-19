@@ -42,6 +42,7 @@ yarn-error.log*
 
 # arquivos migrados do site antigo (grandes demais para versionar)
 /public/documents
+/public/editais
 
 # typescript
 *.tsbuildinfo
