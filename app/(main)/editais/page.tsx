@@ -21,13 +21,8 @@ const Editais = () => {
       aria-labelledby="titulo-editais"
       className="text-black max-w-6xl mx-auto px-4 mt-5 bg-white">
         <h1 id="titulo-editais" className={`${dmSans.className} text-2xl mb-6`}>
-          Editais do Programa Requalifica Centro
+          Editais do Programa de Subvenção Econômica
         </h1>
-        <p className={`${openSans.className} text-lg`}>
-          Confira os editais de credenciamento para os projetos de
-          requalificação edilícia em imóveis localizados no perímetro do
-          Programa Requalifica Centro:
-        </p>
         {editais.map((edital, index) => (
           <article key={edital.id}>
             <div className={`flex flex-col mt-8 ${openSans.className} text-lg`}>
