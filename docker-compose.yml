@@ -1,14 +1,4 @@
 services:
-  migrate:
-    build:
-      context: .
-      target: migrator
-    command: npx prisma migrate deploy
-    env_file:
-      - .env.production
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-
   app:
     build:
       context: .
@@ -25,6 +15,3 @@ services:
       - .env.production
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    depends_on:
-      migrate:
-        condition: service_completed_successfully

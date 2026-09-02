@@ -8,11 +8,7 @@
     "start": "next start -p 3301",
     "lint": "eslint"
   },
-  "prisma": {
-    "seed": "node --import tsx prisma/seed.ts"
-  },
   "dependencies": {
-    "@prisma/adapter-mariadb": "^7.4.2",
     "@types/better-sqlite3": "^7.6.13",
     "@types/proj4": "^2.5.6",
     "better-sqlite3": "^12.6.2",
@@ -21,9 +17,7 @@
     "iconv-lite": "^0.7.2",
     "lucide-react": "^0.577.0",
     "next": "16.3.4",
-    "next-auth": "^5.0.0-beta.30",
     "ol": "^10.8.0",
-    "prisma": "^6.19.2",
     "proj4": "^2.20.4",
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
@@ -32,17 +26,14 @@
     "shapefile": "^0.6.6",
     "tailwind-merge": "^3.5.0",
     "tailwindcss-animate": "^1.0.7",
-    "tsx": "^4.21.0",
     "wkx": "^0.5.0"
   },
   "overrides": {
     "postcss": "^8.5.10",
     "esbuild": ">=0.25.0",
-    "deepmerge-ts": "^8.0.0",
-    "mariadb": "^3.5.3"
+    "deepmerge-ts": "^8.0.0"
   },
   "devDependencies": {
-    "@prisma/client": "^6.19.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -56,12 +47,9 @@
     "typescript": "^5"
   },
   "allowScripts": {
-    "@prisma/client@6.19.2": true,
-    "@prisma/engines@6.19.3": true,
     "better-sqlite3@12.6.2": true,
     "esbuild@0.28.1": true,
     "msw@2.12.10": true,
-    "prisma@6.19.3": true,
     "sharp@0.34.5": true,
     "unrs-resolver@1.11.1": true
   }

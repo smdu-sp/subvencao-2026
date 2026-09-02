@@ -5,14 +5,6 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci
 
-# Stage 2: apenas para rodar `prisma migrate deploy` (evita empacotar o build inteiro do Next.js)
-FROM node:20-slim AS migrator
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY package.json package-lock.json* ./
-COPY prisma ./prisma
-CMD ["npx", "prisma", "migrate", "deploy"]
-
 # Stage 3: build da aplicação Next.js
 FROM node:20-slim AS builder
 WORKDIR /app
@@ -22,7 +14,6 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # NEXT_PUBLIC_* são embutidas no bundle no build — precisam vir como ARG
 ARG NEXT_PUBLIC_MAPTILER_KEY
 ENV NEXT_PUBLIC_MAPTILER_KEY=$NEXT_PUBLIC_MAPTILER_KEY
-RUN npx prisma generate
 RUN npm run build
 
 # Stage 4: imagem de produção mínima
@@ -38,9 +29,6 @@ RUN addgroup --system --gid 1001 nodejs && \
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Cliente Prisma gerado em caminho customizado (output = "../lib/prisma/")
-COPY --from=builder --chown=nextjs:nodejs /app/lib/prisma ./lib/prisma
 
 USER nextjs
 EXPOSE 3301
