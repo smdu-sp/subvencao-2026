@@ -2,6 +2,8 @@
 
 Passo a passo pra subir o app no servidor.
 
+> O `next.config.ts` usa `output: "standalone"`. A partir do Next 16, `next start` **não funciona** mais com esse config — é obrigatório rodar `node .next/standalone/server.js`. O script `build` já copia os assets necessários (`public/` e `.next/static/`) pra dentro de `.next/standalone/` via `postbuild`, e o script `start` já aponta pro server.js standalone.
+
 ## 1. Código no servidor
 
 ```bash
@@ -39,12 +41,22 @@ npm install
 npm run build
 ```
 
-## 5. Subir com PM2
+Isso roda `next build` e, em seguida (via `postbuild`), copia `public/` e `.next/static/` pra `.next/standalone/`.
 
-O script `start` do `package.json` já sobe na porta 3301 (`next start -p 3301`):
+## 5. Copiar o `.env.production` pro standalone
+
+O `.next/standalone/server.js` roda isolado, sem o resto do projeto — ele só lê variáveis de ambiente que estiverem na própria pasta:
 
 ```bash
-pm2 start npm --name subvencao2026 -- start
+cp .env.production .next/standalone/.env.production
+```
+
+> Repita esse passo a cada novo build (o `.next/standalone` é recriado do zero).
+
+## 6. Subir com PM2
+
+```bash
+PORT=3301 pm2 start .next/standalone/server.js --name subvencao2026
 ```
 
 Persistir entre restarts do servidor:
@@ -55,7 +67,7 @@ pm2 startup
 # rode o comando que o pm2 startup imprimir (precisa de sudo)
 ```
 
-## 6. Verificar
+## 7. Verificar
 
 ```bash
 pm2 status
@@ -69,22 +81,30 @@ curl -I http://localhost:3301
 git pull
 npm install
 npm run build
+cp .env.production .next/standalone/.env.production
 pm2 restart subvencao2026
 ```
 
 ---
 
-## Alternativa: build standalone
+## Corrigindo um processo já rodando com `next start` (erro "does not work with output: standalone")
 
-O `next.config.ts` tem `output: "standalone"`, que gera também `.next/standalone/server.js` — um bundle enxuto com `node_modules` mínimo embutido, pensado pra deploys sem o repositório completo (ex: Docker). Não é obrigatório usar; a abordagem acima (`next start` via PM2) já funciona normalmente com esse config.
+Se o PM2 foi iniciado antes com `pm2 start npm -- start` (rodando `next start`), o log vai mostrar:
 
-Se preferir essa rota, depois do `npm run build`:
-
-```bash
-cp -r public .next/standalone/
-cp -r .next/static .next/standalone/.next/
-
-PORT=3301 pm2 start .next/standalone/server.js --name subvencao2026
+```
+⚠ "next start" does not work with "output: standalone" configuration. Use "node .next/standalone/server.js" instead.
 ```
 
-Nesse caso o `.env.production` precisa estar acessível na pasta `.next/standalone/` também (copie-o pra lá), já que o standalone não lê o restante do projeto.
+Pra corrigir, no servidor:
+
+```bash
+pm2 delete subvencao2026
+
+git pull
+npm install
+npm run build
+cp .env.production .next/standalone/.env.production
+
+PORT=3301 pm2 start .next/standalone/server.js --name subvencao2026
+pm2 save
+```
