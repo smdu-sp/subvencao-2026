@@ -47,10 +47,7 @@ const Editais = () => {
                 </a>
               ))}
             </div>
-
-            {index !== editais.length - 1 && (
-              <hr className="mt-6" aria-hidden="true" />
-            )}
+            <hr className="mt-6" aria-hidden="true" />
           </article>
         ))}
         <article>
@@ -67,7 +64,6 @@ const Editais = () => {
             >
               Download da apresentação do Roadshow Geral
             </a>
-            <hr className="mt-6" aria-hidden="true" />
           </div>
         </article>
       </section>
