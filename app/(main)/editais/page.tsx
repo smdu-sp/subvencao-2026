@@ -53,6 +53,23 @@ const Editais = () => {
             )}
           </article>
         ))}
+        <article>
+          <div className={`flex flex-col mt-8 ${openSans.className} text-lg`}>
+            <h2 className={`${dmSans.className} text-lg`}>
+              Apresentação - Roadshow Geral
+            </h2>
+            <a
+              className="text-blue-800 underline"
+              href={"/editais/Apresentacao_Roadshow_Geral_4_Edital_Subvencao.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              Download da apresentação do Roadshow Geral
+            </a>
+            <hr className="mt-6" aria-hidden="true" />
+          </div>
+        </article>
       </section>
     </main>
   );
