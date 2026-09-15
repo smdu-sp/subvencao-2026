@@ -25,17 +25,8 @@ const Inscricoes = () => {
         <div className="text-[18px]">
           {/* <strong>Inscrições de 18/04/2025 a 06/07/2025</strong> */}
 
-          <p className="mb-5">
-            A Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento (SMUL), está com o Chamamento Público nº 01/2026/SMUL aberto para inscrição de projetos ao recebimento de subvenção econômica, a fim de promover intervenções de requalificação edilícia em imóveis localizados no perímetro da Área de Intervenção Urbana Setor Central, conforme disposto pelo Decreto Municipal n° 62.878/23. 
-          </p>
-          <p className="mb-5">
-            As <strong>inscrições estarão abertas do dia 15/08 até o dia 13/10/2026</strong>, conforme cronograma estabelecido pelo Edital de Chamamento Público nº 01/2026/SMUL. 
-          </p>
-          <p className="mb-5">
-            Ao acessar o Portal de Processos, o formulário de inscrição poderá ser encontrado pelo painel esquerdo da tela, em <strong>{'Iniciar Processo > Formulário Padronizado > Requerimento Padrão de Solicitação de Subvenção Econômica.'}</strong>
-          </p>
-          <p className="mb-5">
-            O modelo do formulário de inscrição pode ser consultado <a href="/documents/Modelo-Formulario-Inscricao.pdf" className="underline text-[#0a3297]" target="_blank" download>clicando aqui</a>.
+          <p>
+            A Prefeitura de São Paulo, por meio da Secretaria Municipal de Urbanismo e Licenciamento (SMUL), abrirá, em breve, novo Chamamento Público para que interessados em requalificar imóveis no centro da cidade apresentem seus projetos e solicitem subvenção econômica do Município para executar as obras.
           </p>
         </div>
 
@@ -60,8 +51,8 @@ const Inscricoes = () => {
         </div> */}
 
         <section aria-labelledby="titulo-senhaweb">
-          <h2 id="titulo-senhaweb" className="text-[#0a3297] text-[26px] font-bold mb-5">
-            Como se Inscrever?
+          <h2 id="titulo-senhaweb" className="text-[26px] mb-5 font-bold">
+            Orientações para obtenção de Senha Web
           </h2>
 
           <div className="text-[18px]">
@@ -71,10 +62,32 @@ const Inscricoes = () => {
             </p>
 
             <p className="mb-5">
-              O acesso ao portal pode ser realizado por Senha Web da PMSP ou por meio da conta Gov.br, como demonstrado pelo Passo a Passo de acesso ao Portal de Processos da PMSP, <a href="/documents/Passo-a-Passo-de-acesso-ao-Portal-de-Processos-da-PMSP-1.pdf" className="underline text-[#0a3297]" target="_blank" download>clicando aqui</a>. 
+              Portanto, é necessário que o{" "}
+              <strong>RESPONSÁVEL PELO IMÓVEL</strong> possua a Senha Web, que é
+              obtida por meio do preenchimento de um cadastro eletrônico e
+              permite o acesso a áreas restritas do Portal da Prefeitura.
             </p>
+
             <p className="mb-5">
-              No caso da utilização de Senha Web, recomenda-se que os <strong>RESPONSÁVEIS PELOS IMÓVEIS</strong> solicitem a Senha Web com a devida antecedência, de modo que haja tempo hábil de sua liberação para que, assim, a <strong>SOLICITAÇÃO</strong> seja feita dentro do prazo definido.
+              Para cadastro e maiores informações,{" "}
+              <a
+                className="underline text-[#0a3297]"
+                href={links.senhaweb}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                acesse o site da Senha Web
+                <span className="sr-only"> (abre em nova aba)</span>
+              </a>
+              .
+            </p>
+
+            <p className="mb-5">
+              Recomenda-se que os{" "}
+              <strong>RESPONSÁVEIS PELOS IMÓVEIS</strong> solicitem a Senha Web
+              com a devida antecedência, de modo que haja tempo hábil de sua
+              liberação para que, assim, a <strong>SOLICITAÇÃO</strong> seja
+              feita dentro do prazo definido.
             </p>
           </div>
         </section>

@@ -45,11 +45,6 @@ export default function Home() {
             </h2>
 
             <p className="text-base text-black leading-snug tracking-tight">
-              Incentivo à requalificação de imóveis e ao adensamento
-              populacional na região central da cidade de São Paulo.
-            </p>
-
-            <p className="text-base text-black leading-snug tracking-tight">
               A Prefeitura está investindo na transformação do centro de
               São Paulo. Por meio do Programa de Subvenção Econômica,
               imóveis da região podem receber incentivo financeiro para

@@ -52,9 +52,18 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --button-background: #0a3297;
+:root {
+  --button-background: #0a3297;
+}
+
+/* Fora de qualquer @layer → tem prioridade sobre @layer utilities do Tailwind */
+.route-header-title {
+  padding-inline: 2rem;
+}
+
+@media (min-width: 48rem) {
+  .route-header-title {
+    padding-inline: 0;
   }
 }
 

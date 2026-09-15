@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_MAPTILER_KEY: ${NEXT_PUBLIC_MAPTILER_KEY}
+    container_name: subvencao-2026
+    restart: unless-stopped
+    ports:
+      - "3301:3301"
+    volumes:
+      - ./public/documents:/app/public/documents
+    env_file:
+      - .env.production
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

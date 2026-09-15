@@ -19,15 +19,10 @@ const Editais = () => {
     <main id="main-content">
       <section 
       aria-labelledby="titulo-editais"
-      className="text-black max-w-6xl mx-auto px-4 mt-5 pt-11 bg-white">
+      className="text-black max-w-6xl mx-auto px-4 mt-5 bg-white">
         <h1 id="titulo-editais" className={`${dmSans.className} text-2xl mb-6`}>
-          Editais do Programa Requalifica Centro
+          Editais do Programa de Subvenção Econômica
         </h1>
-        <p className={`${openSans.className} text-lg`}>
-          Confira os editais de credenciamento para os projetos de
-          requalificação edilícia em imóveis localizados no perímetro do
-          Programa Requalifica Centro:
-        </p>
         {editais.map((edital, index) => (
           <article key={edital.id}>
             <div className={`flex flex-col mt-8 ${openSans.className} text-lg`}>
@@ -36,22 +31,22 @@ const Editais = () => {
               </h2>
 
               <p>
-                <span className="font-semibold">Objetivo:</span> Credenciar projetos que promovam
-                intervenções de requalificação edilícia em imóveis localizados
-                no perímetro do Programa Requalifica Centro ao recebimento de
-                subvenção econômica.
+                <span className="font-semibold">Objetivo:</span> {edital.objetivo}
               </p>
 
-              <a
-                className="text-blue-800 underline"
-                href={edital.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Saiba mais sobre o Chamamento Público nº {edital.numero} do Programa Requalifica Centro<span className="sr-only"> (abre em nova aba)</span>
-              </a>
+              {edital.links.map((link, linkIndex) => (
+                <a
+                  key={linkIndex}
+                  className="text-blue-800 underline"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
-
             {index !== editais.length - 1 && (
               <hr className="mt-6" aria-hidden="true" />
             )}

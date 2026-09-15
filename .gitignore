@@ -18,8 +18,6 @@
 /.next/
 /out/
 
-# prisma client
-/lib/prisma/
 
 # production
 /build
@@ -40,8 +38,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# arquivos migrados do site antigo (grandes demais para versionar)
+/public/documents
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
-/lib/generated/prisma
+/cms-documents
+/public/old

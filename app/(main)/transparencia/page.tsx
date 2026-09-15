@@ -41,11 +41,12 @@ const Transparencia = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Entender o decreto que regulamenta a subvenção econômica
+            Entenda o decreto que regulamenta a subvenção econômica
             <span className="sr-only"> (abre em nova aba)</span>
           </Link>
         </header>
-
+      </section>
+      <section className="max-w-6xl mx-auto px-4 mt-5 pt-11 bg-white text-black flex flex-col gap-5">
         <section aria-labelledby="titulo-chamamentos-2025">
           <h2 id="titulo-chamamentos-2025" className="sr-only">
             Chamamentos credenciados em 2025
