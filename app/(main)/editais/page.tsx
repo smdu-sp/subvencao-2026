@@ -62,7 +62,7 @@ const Editais = () => {
               rel="noopener noreferrer"
               download
             >
-              Download da apresentação do Roadshow Geral
+              Baixe a apresentação
             </a>
           </div>
         </article>
