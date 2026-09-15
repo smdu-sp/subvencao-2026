@@ -47,25 +47,11 @@ const Editais = () => {
                 </a>
               ))}
             </div>
-            <hr className="mt-6" aria-hidden="true" />
+            {index !== editais.length - 1 && (
+              <hr className="mt-6" aria-hidden="true" />
+            )}
           </article>
         ))}
-        <article>
-          <div className={`flex flex-col mt-8 ${openSans.className} text-lg`}>
-            <h2 className={`${dmSans.className} text-lg`}>
-              Apresentação - Roadshow Geral
-            </h2>
-            <a
-              className="text-blue-800 underline"
-              href={"/editais/Apresentacao_Roadshow_Geral_4_Edital_Subvencao.pdf"}
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-            >
-              Baixe a apresentação
-            </a>
-          </div>
-        </article>
       </section>
     </main>
   );

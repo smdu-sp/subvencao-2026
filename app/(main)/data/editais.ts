@@ -7,6 +7,10 @@ export const editais = [
       {
         label: "Edital e Anexos",
         url: "/editais/2026-Edital_e_Anexos.pdf",
+      },
+      {
+        label: "Apresentação - Roadshow Geral",
+        url: "/editais/Apresentacao_Roadshow_Geral_4_Edital_Subvencao.pdf",
       }
     ]
   },
