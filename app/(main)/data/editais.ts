@@ -12,6 +12,10 @@ export const editais = [
         label: "Apresentação - Roadshow Geral",
         url: "/editais/Apresentacao_Roadshow_Geral_4_Edital_Subvencao.pdf",
       }
+      {
+        label: "Lista de Interessados Habilitados",
+        url: "/editais/Lista_Interessados_habilitados.pdf",
+      }
     ]
   },
   {
