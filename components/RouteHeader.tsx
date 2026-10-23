@@ -27,15 +27,30 @@ const RouteHeader = () => {
       <nav className="w-full max-w-360">
         <div className="w-full flex justify-center items-center">
           <Link href="/" className="flex w-full justify-center items-center">
-            <Image src="/header.png" alt="Logo" width={1440} height={147.31} className="w-full h-auto" priority />
+            <picture className="w-full">
+              <source media="(max-width: 767px)" srcSet="/header-mobile.png" />
+              <Image
+                src="/header.png"
+                alt="Logo"
+                width={1440}
+                height={147.31}
+                className="w-full h-auto"
+                priority
+              />
+            </picture>
           </Link>
         </div>
         <div className="mx-auto mt-3 w-full max-w-360 sm:mt-4">
           <div
             className="w-full max-[1310px]:rounded-none rounded-sm bg-(--button-background) min-h-16 text-base font-bold text-white text-[26px]"
-            style={{ viewTransitionName: "header-btn-" + pathname.replace(/^\//, "").replace(/\//g, "-") }}
+            style={{
+              viewTransitionName:
+                "header-btn-" + pathname.replace(/^\//, "").replace(/\//g, "-"),
+            }}
           >
-            <div className="mx-auto w-full min-h-20 flex items-center max-w-215 text-center md:text-left route-header-title">{title}</div>
+            <div className="mx-auto w-full min-h-20 flex items-center max-w-215 text-center md:text-left route-header-title">
+              {title}
+            </div>
           </div>
         </div>
       </nav>
